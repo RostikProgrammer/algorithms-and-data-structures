@@ -20,13 +20,47 @@ def f1(list):
     arr += [*list[num:]] #dobavlaem k ostalnomu         
     return arr
 
+def newlist(list):
+    temp = []
+    for i in list:
+        if i > 0:
+            temp.append(i)
+        else:
+            temp.append(1)
+    return temp
+
+def f2(list):
+
+    def newlist(list):
+        temp = []
+        for i in list:
+            if i > 0:
+                temp.append(i)
+            else:
+                temp.append(1)
+        return temp
+
+    b = 1
+    temp = 1000
+    mess = ""
+
+    while b == 1:
+        for i in list:
+            if i <= temp:
+                temp = i
+                mess = "umenshaetsya"
+                answer = mess
+            elif i > temp:
+                b = 0
+                print("chisla idut ne po poryadku, zamenyaem otritsatelniye na 1")         
+                answer = newlist(list)
+                break
+    return answer
+
 def f3(list):
     list.sort()
     print("Sortiruem i perevorachivaem list")
     return list[:-1]
-
-def f4(list):
-    
 
 
 a = []
@@ -37,13 +71,15 @@ step = int(input("(integer) With step:"))
 while i < 11:
     a.append(rd.randrange(n, m, step))
     i += 1
-print(a)
+print(a, "\n\n")
 
 b = f1(a)
-print("Resheniyem pervogo zadaniya budet list:\n", b)
+print("Resheniyem pervogo zadaniya budet list:\n", b, "\n\n")
+
+b = f2(a)
+print("Resheniyem vtorogo zadaniya budet list:\n", b, "\n\n")
 
 b = f3(a)
-print("Resheniyem tretego zadaniya budet list:\n", b)
+print("Resheniyem tretego zadaniya budet list:\n", b, "\n\n")
 
-b = f4(a)
-print(a)
+input()
